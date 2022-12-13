@@ -49,7 +49,7 @@ H1 : µ > 20.000 km
 * **Apakah Anda setuju dengan klaim tersebut?** <br />
     Setuju, karena berdasarkan perhitungan (dengan tidak menggunakan uji statistik) memungkinkan untuk didapatkan rata rata 23.500. Serta akan dibuktikan lebih lanjut dengan melakukan uji statistik dibawah.
 * **Jelaskan maksud dari output yang dihasilkan!** <br />
-    Pada poin ini dilakukan perhitungan uji Z satu sample (karena n > 100 maka menggunakan uji Z) dengan menggunakan fungsi ```zsum.test()```. Serta diperlukan package library BSDA untuk menggunakan fungsi tersebut. 
+    Pada poin ini dilakukan perhitungan uji Z satu sample (karena n > 30 maka menggunakan uji Z) dengan menggunakan fungsi ```zsum.test()```. Serta diperlukan package library BSDA untuk menggunakan fungsi tersebut. 
     ```R
     install.packages("BSDA")
     library(BSDA)
