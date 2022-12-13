@@ -95,6 +95,7 @@ Dari data diatas berilah keputusan serta kesimpulan yang didapatkan dari hasil d
     Setelah dijalankan: 
     
     ![image](https://user-images.githubusercontent.com/90106865/207163897-38c078fa-1110-4e47-be25-abebf8c03a31.png)
+    
     didapat nilai ```t = 1.9267```
     
 * **Lakukan Uji Statistik (df = 2)** <br />
@@ -168,7 +169,7 @@ Maka Kerjakan atau Carilah:<br />
 
     
 * **Carilah atau periksalah Homogeneity of variances nya, Berapa nilai p yang didapatkan?, Apa hipotesis dan kesimpulan yang dapat diambil?** <br />
-    Untuk memeriksa homogeneity of variances digunakan fungsi ```barlett.test()``` dan menggunakan data set yang telah diattach pada poin A
+    Untuk memeriksa homogeneity of variances digunakan fungsi ```bartlett.test()``` serta menggunakan data set yang telah diattach pada poin A
     ```R
     bartlett.test(Length ~ Group, data = dataset)
     ```
@@ -176,7 +177,7 @@ Maka Kerjakan atau Carilah:<br />
     
     ![image](https://user-images.githubusercontent.com/90106865/207177970-211ab1dd-7b67-4af1-b54c-e061d6b30bcb.png)
 
-    didapat ```p-value = 0.8054``` yang nilainya lebih besar dari 𝛼 = 0.05 sehingga dibuktukan bahwa variance sama.
+    didapat ```p-value = 0.8054``` yang nilainya lebih besar dari 𝛼 = 0.05 sehingga dibuktikan bahwa variance sama.
     
 * **Untuk uji ANOVA (satu arah), buatlah model linier dengan Panjang versus Grup dan beri nama model tersebut model 1.** <br />
     Digunakan fungsi ```lm()``` dan ```anova()``` untuk membuat model linier dan melakukan uji anova
@@ -193,7 +194,7 @@ Maka Kerjakan atau Carilah:<br />
     Pada poin C didapat ```p-value = 0.0013``` dan nilainya lebih kecil dari 𝛼 = 0.05. Sehingga hipotesis nol ditolak dan dapat disimpulkan bahwa terdapat perbedaan panjang antara ketiga spesies atau rata-rata panjangnya sama.
     
 * **Verifikasilah jawaban model 1 dengan Post-hoc test Tukey HSD, dari nilai p yang didapatkan apakah satu jenis kucing lebih panjang dari yang lain? Jelaskan.** <br />
-    Digunakan fungsi TukeyHSD() untuk melakukan verifikasi pada jawaban model 1 dengan Post-hoc test Tukey HSD.
+    Digunakan fungsi ```TukeyHSD()``` untuk melakukan verifikasi pada jawaban model 1 dengan Post-hoc test Tukey HSD.
     ```R
     TukeyHSD(aov(m1))
     ```
@@ -217,8 +218,9 @@ Maka Kerjakan atau Carilah:<br />
 
 ## No 5
 >**Data yang digunakan merupakan hasil eksperimen yang dilakukan untuk mengetahui pengaruh suhu operasi (100˚C, 125˚C dan 150˚C) dan tiga jenis kaca pelat muka (A, B dan C) pada keluaran cahaya tabung osiloskop. Percobaan dilakukan sebanyak 27 kali dan didapat data sebagai berikut: [Data Hasil Eksperimen](https://drive.google.com/file/d/1aLUOdw_LVJq6VQrQEkuQhZ8FW43FemTJ/view). Dengan data tersebut:** <br />
+    
 * **Buatlah plot sederhana untuk visualisasi data** <br />
-    Untuk membuat plot diperlukan untuk menginstall dan menggunakan library-library dibawah ini:
+    Pada soal ini diperlukan untuk menginstall dan menggunakan library-library dibawah ini:
     ```R
     install.packages("multcompView")
     library(readr)
@@ -226,7 +228,6 @@ Maka Kerjakan atau Carilah:<br />
     library(multcompView)
     library(dplyr)
     ```
-    
     Digunakan ```read_csv()``` dan ```head()``` untuk membaca dan memasukkan file csv ke dataset dan melakukan observasi pada dataset menggunakan fungsi ```STR()```
     ```R
     data <- read_csv("GTL.csv")
@@ -239,12 +240,67 @@ Maka Kerjakan atau Carilah:<br />
     
     ![image](https://user-images.githubusercontent.com/90106865/207190988-d72d7775-793e-4718-aa88-63683afb1a05.png)
 
-
+    Lalu menggunakan fungsi ```qplot()``` untuk membuat visualisasi plot sederhana
+    ```R
+    qplot(x = Temp, y = Light, geom = "point", data = data) + facet_grid(.~Glass, labeller = label_both)
+    ```
+    
+    ![image](https://user-images.githubusercontent.com/90106865/207197762-8718e964-3481-471e-ae20-32ae229dd30a.png)
+    
 * **Lakukan uji ANOVA dua arah** <br />
+    Untuk melakukan uji ANOVA dua arah, variabel dibuat sebagai factor dengan menggunakan ```as.factor()```
+    ```R
+    data$Glass = as.factor(data$Glass)
+    data$Temp_Factor = as.factor(data$Temp)
+    str(data)
+    ```
+    Lalu menggunakan fungsi ```summary(aov())``` untuk melakukan analisis varians atau ANOVA
+    ```R
+    anova = aov(Light ~ Glass*Temp_Factor, data = data)
+    summary(anova)
+    ```
+    Setelah dijalankan:
+    
+    ![image](https://user-images.githubusercontent.com/90106865/207198422-e712b38a-a771-4b4a-b01e-2ab5ad4b56f0.png)
     
 * **Tampilkan tabel dengan mean dan standar deviasi keluaran cahaya untuk setiap perlakuan (kombinasi kaca pelat muka dan suhu operasi)** <br />
+    Digunakan fungsi ```group_by()``` dan ```summarise()``` untuk mendapatkan summary data sesuai dengan mean dan standar deviasinya
+    ```R
+    data_summary = group_by(data, Glass, Temp) %>%
+      summarise(mean = mean(Light), sd = sd(Light)) %>%
+      arrange(desc(mean))
+    print(data_summary)
+    ```
+    Setelah dijalankan:
     
+    ![image](https://user-images.githubusercontent.com/90106865/207199358-aa7ff921-52b2-44aa-9d5a-68ddff9e45e0.png)
+
 * **Lakukan uji Tukey** <br />
+    Digunakan fungsi ```TukeyHSD()``` untuk melakukan uji Tukey
+    ```R
+    tukeyHSD = TukeyHSD(anova)
+    print(tukeyHSD)
+    ```
+    Setelah dijalankan:
     
+    ![image](https://user-images.githubusercontent.com/90106865/207199974-a8c9ccc7-5b72-4a63-b37b-bf5794f9d88e.png)
+
 * **Gunakan compact letter display untuk menunjukkan perbedaan signifikan antara uji Anova dan uji Tukey** <br />
+    Digunakan fungsi ```multcompLetterS4``` untuk membuat compact letter display
+    ```R
+    tukeycld = multcompLetters4(anova, tukeyHSD)
+    print(tukeycld)
+    ```
+    Setelah dijalankan:
     
+    ![image](https://user-images.githubusercontent.com/90106865/207200908-3fb5d800-a42d-47b4-bb5e-a6b2ea4e122d.png)
+
+    Lalu menambahkan mean dan standar deviasi ke tabel compact letter display
+    ```R
+    cld = as.data.frame.list(tukeycld$`Glass:Temp_Factor`)
+    data_summary$Tukey = cld$Letters
+    print(data_summary)
+    ```
+    Setelah dijalankan:
+    
+    ![image](https://user-images.githubusercontent.com/90106865/207201221-fdabdd8c-74fc-44d6-ab00-b3667e9c28c6.png)
