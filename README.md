@@ -67,7 +67,7 @@ H1 : µ > 20.000 km
     Didapat interval rata-rata jarak tempuh mobil pertahunnya adalah lebih dari ```22.858,51```. Sehingga dapat dibuktikan bahwa rata-rata jarak tempuh mobil pertahun lebih dari 20.000.
     
 * **Buatlah kesimpulan berdasarkan P-Value yang dihasilkan!** <br />
-    Pada poin B didapatkan hasil uji dimana rata-rata jarak tempuh mobil pertahun lebih dari 20.000 dan didapat pula nilai ```p-value = 2.2e-16``` lebih kecil dari significant level ```𝛼 = 0.05```. Oleh karena itu hipotesis nol ditolak dan hipotesis alternatif diterima dan dapat disimpulkan bahwa rata-rata jarak tempuh mobil lebih dari 20.000km/tahun.
+    Pada poin B didapatkan hasil uji dimana rata-rata jarak tempuh mobil pertahun lebih dari 20.000 dan didapat pula nilai ```p-value < 2.2e-16``` lebih kecil dari significant level ```𝛼 = 0.05```. Oleh karena itu hipotesis nol ditolak dan hipotesis alternatif diterima dan dapat disimpulkan bahwa rata-rata jarak tempuh mobil lebih dari 20.000km/tahun.
 
 ## No 3
 >**(Hipotesa 2 sampel) Diketahui perusahaan memiliki seorang data analyst ingin memecahkan permasalahan pengambilan keputusan dalam perusahaan tersebut. Selanjutnya didapatkanlah data berikut dari perusahaan saham tersebut.** <br />
