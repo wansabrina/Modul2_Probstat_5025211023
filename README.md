@@ -40,7 +40,7 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
     Pada poin B didapat nilai probabilitas uji t p-value sebesar ```6.003e-05``` yang dimana jika dibandingkan dengan significant level, nilai p-value lebih kecil (p-value = 0.00006003) > (𝛼 = 0.05). Oleh karena itu hipotesis nol (H0) ditolak dan hipotesis alternatif diterima. Sehingga kesimpulan yang diambil berbanding terbalik dengan hipotesa nol, yaitu terdapat pengaruh yang signifikan secara statistika dalam hal kadar saturasi oksigen, baik sebelum dan sesudah melakukan aktivitas A.
 
 ## No 2
->**Diketahui bahwa mobil dikemudikan rata-rata lebih dari 20.000 kilometer per tahun. Untuk menguji klaim ini, 100 pemilik mobil yang dipilih secara acak diminta untuk mencatat jarak yang mereka tempuh. Jika sampel acak menunjukkan rata-rata 23.500 kilometer dan standar deviasi 3900 kilometer. (Kerjakan menggunakan library seperti referensi pada modul).** <br />
+>**(Hipotesa 1 sampel) Diketahui bahwa mobil dikemudikan rata-rata lebih dari 20.000 kilometer per tahun. Untuk menguji klaim ini, 100 pemilik mobil yang dipilih secara acak diminta untuk mencatat jarak yang mereka tempuh. Jika sampel acak menunjukkan rata-rata 23.500 kilometer dan standar deviasi 3900 kilometer. (Kerjakan menggunakan library seperti referensi pada modul).** <br />
 ```R
 H0 : µ ≤ 20.000 km
 H1 : µ > 20.000 km
@@ -70,7 +70,7 @@ H1 : µ > 20.000 km
     Pada poin B didapatkan hasil uji dimana rata-rata jarak tempuh mobil pertahun lebih dari 20.000 dan didapat pula nilai ```p-value = 2.2e-16``` lebih kecil dari significant level ```𝛼 = 0.05```. Oleh karena itu hipotesis nol ditolak dan hipotesis alternatif diterima dan dapat disimpulkan bahwa rata-rata jarak tempuh mobil lebih dari 20.000km/tahun.
 
 ## No 3
->**Diketahui perusahaan memiliki seorang data analyst ingin memecahkan permasalahan pengambilan keputusan dalam perusahaan tersebut. Selanjutnya didapatkanlah data berikut dari perusahaan saham tersebut.** <br />
+>**(Hipotesa 2 sampel) Diketahui perusahaan memiliki seorang data analyst ingin memecahkan permasalahan pengambilan keputusan dalam perusahaan tersebut. Selanjutnya didapatkanlah data berikut dari perusahaan saham tersebut.** <br />
 
 ![image](https://user-images.githubusercontent.com/90106865/206866754-294cf7ff-3b2a-452a-b3c7-1dfee1fef2bc.png)<br />
 Dari data diatas berilah keputusan serta kesimpulan yang didapatkan dari hasil diatas. Asumsikan nilai variancenya sama, apakah ada perbedaan pada rata-ratanya **(α= 0.05)?** Buatlah :
@@ -122,7 +122,7 @@ Dari data diatas berilah keputusan serta kesimpulan yang didapatkan dari hasil d
     Sehingga dapat disimpulkan bahwa terdapat perbedaan antara rata-rata saham di Bandung dan rata-rata saham di Bali.
     
 ## No 4
->**Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitiannya ia mengumpulkan data tiga spesies kucing yaitu kucing oren, kucing hitam dan kucing putih dengan panjangnya masing-masing. Jika :** <br />
+>**(Anova satu arah) Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitiannya ia mengumpulkan data tiga spesies kucing yaitu kucing oren, kucing hitam dan kucing putih dengan panjangnya masing-masing. Jika :** <br />
 Diketahui dataset https://intip.in/datasetprobstat1 <br />
 H0 : Tidak ada perbedaan panjang antara ketiga spesies atau rata-rata panjangnya sama <br />
 
@@ -217,7 +217,7 @@ Maka Kerjakan atau Carilah:<br />
     ![image](https://user-images.githubusercontent.com/90106865/207184641-6475d134-2259-456b-bdcf-978815abdf5d.png)
 
 ## No 5
->**Data yang digunakan merupakan hasil eksperimen yang dilakukan untuk mengetahui pengaruh suhu operasi (100˚C, 125˚C dan 150˚C) dan tiga jenis kaca pelat muka (A, B dan C) pada keluaran cahaya tabung osiloskop. Percobaan dilakukan sebanyak 27 kali dan didapat data sebagai berikut: [Data Hasil Eksperimen](https://drive.google.com/file/d/1aLUOdw_LVJq6VQrQEkuQhZ8FW43FemTJ/view). Dengan data tersebut:** <br />
+>**(Anova dua arah) Data yang digunakan merupakan hasil eksperimen yang dilakukan untuk mengetahui pengaruh suhu operasi (100˚C, 125˚C dan 150˚C) dan tiga jenis kaca pelat muka (A, B dan C) pada keluaran cahaya tabung osiloskop. Percobaan dilakukan sebanyak 27 kali dan didapat data sebagai berikut: [Data Hasil Eksperimen](https://drive.google.com/file/d/1aLUOdw_LVJq6VQrQEkuQhZ8FW43FemTJ/view). Dengan data tersebut:** <br />
     
 * **Buatlah plot sederhana untuk visualisasi data** <br />
     Pada soal ini diperlukan untuk menginstall dan menggunakan library-library dibawah ini:
