@@ -18,7 +18,7 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen dari respon
     X = c(78, 75, 67, 77, 70, 72, 78, 74, 77)
     Y = c(100, 95, 70, 90, 90, 90, 89, 90, 100)
     ```
-    Mencari selisih dari data X dan Y. Lalu menggunakan fungsi ```sd()``` untuk mencari standar deviasi  dari selisih data.
+    Mencari selisih dari data X dan Y. Lalu menggunakan fungsi ```sd()``` untuk mencari standar deviasi  dari selisih data
     ```R
     selisih = (X - Y)
     sd(selisih)
